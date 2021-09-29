@@ -17,13 +17,19 @@
   <div class="form-group mt-2">
     <input type="text" class="form-control" placeholder="Nome completo" formControlName="fullName">
     <app-mensagem
-    *ngIf="novoUsuarioForm.get('fullName')?.errors &&
+    *ngIf="novoUsuarioForm.get('fullName')?.errors?.minusculo &&
+    novoUsuarioForm.get('fullName')?.errors &&
       novoUsuarioForm.get('fullName')?.touched"
       mensagem="Nome incorreto."
     ></app-mensagem>
   </div>
   <div class="form-group mt-2">
     <input type="text" class="form-control" placeholder="Usuário" formControlName="userName">
+    <app-mensagem
+    *ngIf="novoUsuarioForm.get('userName')?.errors &&
+    novoUsuarioForm.get('userName')?.touched"
+    mensagem="Verifique as regras, usuário com letras minusculas, tamanho minimo de 3 caracteres."
+  ></app-mensagem>
   </div>
   <div class="form-group mt-2">
     <input type="password" class="form-control" placeholder="Senha" formControlName="password">
